@@ -4,10 +4,16 @@ defmodule Routes.Application do
   @moduledoc false
 
   use Application
+  
+  alias RoutesHolder
+  alias Routes
 
+  
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      {RoutesHolder, 0},
+      {Routes, 0}
       # Starts a worker by calling: Routes.Worker.start_link(arg)
       # {Routes.Worker, arg},
     ]
